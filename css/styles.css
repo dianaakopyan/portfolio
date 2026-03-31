@@ -456,6 +456,131 @@ img { display: block; max-width: 100%; }
   border-color: var(--text);
 }
 
+.about__more {
+  display: inline-block;
+  margin-top: 28px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+.about__more:hover {
+  color: var(--text);
+  text-decoration-color: var(--text);
+}
+
+/* ========================
+   ABOUT PAGE
+   ======================== */
+.about-page {
+  padding: 64px 0 100px;
+}
+
+.about-page__intro {
+  margin-bottom: 80px;
+}
+
+.about-page__headline {
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+.about-page__lead {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 620px;
+  letter-spacing: -0.01em;
+}
+
+.about-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 64px;
+}
+
+.about-section__label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+.about-section__content {}
+
+.about-section__text {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 560px;
+}
+
+.about-section__text:last-child { margin-bottom: 0; }
+
+.about-fit {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.about-fit__col {}
+
+.about-fit__title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.about-fit__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-fit__item {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+
+.about-fit__item::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--border);
+}
+
+@media (max-width: 640px) {
+  .about-page__headline { font-size: 36px; }
+  .about-page__lead { font-size: 18px; }
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .about-fit { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 640px) {
   .about__grid {
     grid-template-columns: 1fr;
