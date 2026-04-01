@@ -6,160 +6,247 @@
   <title>DN Warehouse — Diana Akopyan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: 24px;
-      line-height: 36px;
-      color: #1a1a1a;
       background: #F5F5F5;
+      color: #1a1a1a;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
 
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 40px; }
 
-    .nav {
+    /* ── Breadcrumb nav ── */
+    .nav { padding: 32px 0 0; }
+    .breadcrumb {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 32px 0;
+      gap: 8px;
+      font-size: 14px;
+      color: #999999;
+      letter-spacing: 0.01em;
     }
-    .nav__back { font-size: 20px; color: #1a1a1a; transition: opacity 0.15s; }
-    .nav__back:hover { opacity: 0.5; }
-    .nav__title { font-size: 18px; font-weight: 500; color: #888888; }
+    .breadcrumb a { transition: color 0.15s; }
+    .breadcrumb a:hover { color: #1a1a1a; }
+    .breadcrumb__sep { opacity: 0.5; }
 
-    .page-header { padding: 48px 0 64px; border-bottom: 1px solid #ebebeb; }
-    .page-header__title {
-      font-size: 48px;
-      line-height: 1.1;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+    /* ── Intro ── */
+    .intro { padding: 48px 0 80px; }
+
+    .intro__statement {
+      font-size: 42px;
+      line-height: 1.13;
+      font-weight: 400;
+      letter-spacing: -0.025em;
       color: #1a1a1a;
-      margin-bottom: 12px;
+      max-width: 860px;
+      margin-bottom: 40px;
     }
-    .page-header__sub { font-size: 20px; color: #888888; }
 
-    .intro { padding: 64px 0; border-bottom: 1px solid #ebebeb; }
-    .intro p { color: #1a1a1a; margin-bottom: 24px; max-width: 760px; }
-    .intro p:last-of-type { margin-bottom: 0; }
-    .intro__note { font-size: 18px; color: #888888; margin-top: 32px; display: block; }
-
-    .cards-section { padding: 64px 0; }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid #ebebeb;
-      border-radius: 12px;
-      padding: 32px;
-      margin-bottom: 24px;
+    .intro__author {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 48px;
     }
-    .card:last-child { margin-bottom: 0; }
-    .card__title {
-      font-size: 26px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-      color: #1a1a1a;
+    .intro__avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: #cccccc;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
     }
-    .card__desc { font-size: 20px; color: #888888; line-height: 30px; margin-bottom: 28px; }
-    .card__images {
+    .intro__bio {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #888888;
+      max-width: 680px;
+      padding-top: 3px;
+    }
+
+    .intro__cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 48px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      margin-bottom: 32px;
     }
-    .card__images img {
+
+    .intro__para {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      max-width: 860px;
+    }
+
+    /* ── Cards ── */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 80px;
+    }
+
+    .card {
+      display: block;
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 40px 44px 0;
+      background: radial-gradient(ellipse at 78% 5%, #1e3a60 0%, #0c1829 50%, #050c18 100%);
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+    .card:hover { filter: brightness(1.08); }
+
+    .card__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .card__text { flex: 1; }
+
+    .card__title {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .card__desc {
+      font-size: 19px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.52);
+      max-width: 620px;
+    }
+
+    .card__arrow {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 17px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .card__img {
       display: block;
       width: 100%;
-      border-radius: 8px;
-      background: #f0f0f0;
-      aspect-ratio: 16 / 10;
+      border-radius: 10px 10px 0 0;
+      background: #e8edf4;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
+      object-position: top left;
     }
-    .cta { display: inline-block; font-size: 20px; color: #1a1a1a; font-weight: 500; }
-    .cta:hover { text-decoration: underline; }
 
-    .footer-metrics {
+    /* ── Footer ── */
+    .footer {
       text-align: center;
-      color: #888888;
-      font-size: 18px;
-      line-height: 30px;
-      padding: 64px 0;
-      border-top: 1px solid #ebebeb;
+      font-size: 15px;
+      color: #999999;
+      line-height: 1.6;
+      padding: 0 0 72px;
     }
 
+    /* ── Mobile ── */
     @media (max-width: 640px) {
-      body { font-size: 18px; line-height: 28px; }
       .wrap { padding: 0 20px; }
-      .page-header__title { font-size: 32px; }
-      .card__images { grid-template-columns: 1fr; }
-      .card__title { font-size: 22px; }
+      .intro__statement { font-size: 26px; }
+      .intro__cols { grid-template-columns: 1fr; gap: 20px; }
+      .intro__para { font-size: 16px; }
+      .card { padding: 28px 28px 0; }
+      .card__title { font-size: 26px; }
       .card__desc { font-size: 16px; }
+      .card__img { aspect-ratio: 4 / 3; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
+
     <nav class="nav">
-      <a href="../index.html" class="nav__back">← Back</a>
-      <span class="nav__title">DN Warehouse</span>
+      <div class="breadcrumb">
+        <a href="../index.html">Cases</a>
+        <span class="breadcrumb__sep">·</span>
+        <span>DN Warehouse</span>
+        <span class="breadcrumb__sep">·</span>
+        <span>2022–2023</span>
+      </div>
     </nav>
 
-    <header class="page-header">
-      <h1 class="page-header__title">DN Warehouse</h1>
-      <p class="page-header__sub">Product Lead & Designer · 2022–2023</p>
-    </header>
-
     <div class="intro">
-      <p>DN.ru is one of Russia's largest suppliers of industrial pipeline valves — own production, warehouses across the country, a network of regional dealers.</p>
-      <p>The old model: a dealer orders from DN, receives goods at their warehouse, then ships to their client. Two logistics steps where one would do.</p>
-      <p>The new idea: give dealers access to DN's warehouse infrastructure directly. DN fulfills orders straight to dealers' end clients — picking, packing, last-mile. Dealers save on storage. DN earns on logistics margin.</p>
-      <p>No off-the-shelf WMS supported the combination of complex industrial nomenclature, multi-location stock, and this new fulfillment model. We evaluated several — none fit. So we built from scratch.</p>
-      <p>I was the sole designer and product owner. Worked directly with the warehouse director, company owner, and warehouse staff across five locations. 12 months, zero to production.</p>
-      <span class="intro__note">All screens below are the DN operator side of the product.</span>
+      <h1 class="intro__statement">DN.ru is one of Russia's largest suppliers of industrial pipeline valves — own production, warehouses across the country, a network of regional dealers.</h1>
+
+      <div class="intro__author">
+        <div class="intro__avatar" style="background-image: url('../diana.jpg')"></div>
+        <p class="intro__bio">I was the sole designer and product owner. Worked directly with the warehouse director, company owner, and warehouse staff across five locations. 12 months, zero to production.</p>
+      </div>
+
+      <div class="intro__cols">
+        <p>The old model: a dealer orders from DN, receives goods at their warehouse, then ships to their client. Two logistics steps where one would do.</p>
+        <p>The new idea: give dealers access to DN's warehouse infrastructure directly. DN fulfills orders straight to dealers' end clients — picking, packing, last-mile. Dealers save on storage. DN earns on logistics margin.</p>
+      </div>
+
+      <p class="intro__para">No off-the-shelf WMS supported the combination of complex industrial nomenclature, multi-location stock, and this new fulfillment model. We evaluated several — none fit. So we built from scratch.</p>
     </div>
 
-    <section class="cards-section">
+    <section class="cards">
 
-      <div class="card">
-        <h2 class="card__title">Inventory visibility</h2>
-        <p class="card__desc">How we replaced three daily tools with one table — and cut stock lookup time from 4 minutes to 30 seconds.</p>
-        <div class="card__images">
-          <img src="my-warehouse-main.png" alt="My Warehouse main screen" />
-          <img src="my-warehouse-item-details.png" alt="Item details popup" />
+      <a href="dn-warehouse-inventory.html" class="card">
+        <div class="card__top">
+          <div class="card__text">
+            <h2 class="card__title">Inventory visibility</h2>
+            <p class="card__desc">How we replaced three daily tools with one table and cut stock lookup time from 4 minutes to 30 seconds.</p>
+          </div>
+          <div class="card__arrow">↗</div>
         </div>
-        <a href="dn-warehouse-inventory.html" class="cta">See the full breakdown →</a>
-      </div>
+        <img src="my-warehouse-main.png" alt="My Warehouse main screen" class="card__img" />
+      </a>
 
-      <div class="card">
-        <h2 class="card__title">Delivery management</h2>
-        <p class="card__desc">Three months of operational logs pointed to the same two failure patterns every week. Here's what we changed.</p>
-        <div class="card__images">
-          <img src="create-new-delivery.png" alt="Create new delivery screen" />
-          <img src="file-import.png" alt="File import screen" />
+      <a href="dn-warehouse-delivery.html" class="card">
+        <div class="card__top">
+          <div class="card__text">
+            <h2 class="card__title">Delivery management</h2>
+            <p class="card__desc">Three months of operational logs pointed to the same two failure patterns every week. Here's what we changed.</p>
+          </div>
+          <div class="card__arrow">↗</div>
         </div>
-        <a href="dn-warehouse-delivery.html" class="cta">Break it down →</a>
-      </div>
+        <img src="create-new-delivery.png" alt="Create new delivery screen" class="card__img" />
+      </a>
 
-      <div class="card">
-        <h2 class="card__title">Operations & control</h2>
-        <p class="card__desc">Individual tasks were solved. Then we looked at what breaks when you scale to five warehouses and a full operations team.</p>
-        <div class="card__images">
-          <img src="deliveries-list.png" alt="Deliveries list" />
-          <img src="few-selected-actions.png" alt="Multi-select contextual actions bar" />
+      <a href="dn-warehouse-operations.html" class="card">
+        <div class="card__top">
+          <div class="card__text">
+            <h2 class="card__title">Operations & control</h2>
+            <p class="card__desc">Individual tasks were solved. Then we looked at what breaks when you scale to five warehouses and a full operations team.</p>
+          </div>
+          <div class="card__arrow">↗</div>
         </div>
-        <a href="dn-warehouse-operations.html" class="cta">See the thinking →</a>
-      </div>
+        <img src="few-selected-actions.png" alt="Multi-select actions" class="card__img" />
+      </a>
 
     </section>
 
-    <footer class="footer-metrics">
+    <footer class="footer">
       ~35% faster across core workflows · 6 weeks to full adoption · Zero support tickets after week one
     </footer>
+
   </div>
 </body>
 </html>
