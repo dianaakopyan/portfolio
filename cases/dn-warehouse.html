@@ -1,277 +1,165 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DN Warehouse — Diana Akopyan</title>
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 24px;
+      line-height: 36px;
+      color: #1a1a1a;
+      background: #F5F5F5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 0;
+    }
+    .nav__back { font-size: 20px; color: #1a1a1a; transition: opacity 0.15s; }
+    .nav__back:hover { opacity: 0.5; }
+    .nav__title { font-size: 18px; font-weight: 500; color: #888888; }
+
+    .page-header { padding: 48px 0 64px; border-bottom: 1px solid #ebebeb; }
+    .page-header__title {
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+    .page-header__sub { font-size: 20px; color: #888888; }
+
+    .intro { padding: 64px 0; border-bottom: 1px solid #ebebeb; }
+    .intro p { color: #1a1a1a; margin-bottom: 24px; max-width: 760px; }
+    .intro p:last-of-type { margin-bottom: 0; }
+    .intro__note { font-size: 18px; color: #888888; margin-top: 32px; display: block; }
+
+    .cards-section { padding: 64px 0; }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #ebebeb;
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .card:last-child { margin-bottom: 0; }
+    .card__title {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+    .card__desc { font-size: 20px; color: #888888; line-height: 30px; margin-bottom: 28px; }
+    .card__images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .card__images img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      background: #f0f0f0;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+    .cta { display: inline-block; font-size: 20px; color: #1a1a1a; font-weight: 500; }
+    .cta:hover { text-decoration: underline; }
+
+    .footer-metrics {
+      text-align: center;
+      color: #888888;
+      font-size: 18px;
+      line-height: 30px;
+      padding: 64px 0;
+      border-top: 1px solid #ebebeb;
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 18px; line-height: 28px; }
+      .wrap { padding: 0 20px; }
+      .page-header__title { font-size: 32px; }
+      .card__images { grid-template-columns: 1fr; }
+      .card__title { font-size: 22px; }
+      .card__desc { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="../index.html" class="nav__back">← Back</a>
+      <span class="nav__title">DN Warehouse</span>
+    </nav>
 
-  <header class="header" id="header">
-    <div class="wrap header__inner">
-      <a href="../index.html" class="header__logo">Diana Akopyan</a>
-      <nav class="header__nav">
-        <a href="../index.html#work" class="header__link">Work</a>
-        <a href="../about.html" class="header__link">About</a>
-        <a href="../index.html#contact" class="header__link">Contact</a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">●</button>
-      </nav>
+    <header class="page-header">
+      <h1 class="page-header__title">DN Warehouse</h1>
+      <p class="page-header__sub">Product Lead & Designer · 2022–2023</p>
+    </header>
+
+    <div class="intro">
+      <p>DN.ru is one of Russia's largest suppliers of industrial pipeline valves — own production, warehouses across the country, a network of regional dealers.</p>
+      <p>The old model: a dealer orders from DN, receives goods at their warehouse, then ships to their client. Two logistics steps where one would do.</p>
+      <p>The new idea: give dealers access to DN's warehouse infrastructure directly. DN fulfills orders straight to dealers' end clients — picking, packing, last-mile. Dealers save on storage. DN earns on logistics margin.</p>
+      <p>No off-the-shelf WMS supported the combination of complex industrial nomenclature, multi-location stock, and this new fulfillment model. We evaluated several — none fit. So we built from scratch.</p>
+      <p>I was the sole designer and product owner. Worked directly with the warehouse director, company owner, and warehouse staff across five locations. 12 months, zero to production.</p>
+      <span class="intro__note">All screens below are the DN operator side of the product.</span>
     </div>
-  </header>
 
-  <main>
-    <div class="wrap">
+    <section class="cards-section">
 
-      <!-- HERO -->
-      <section class="case-hero">
-        <a href="../index.html" class="case-back">← Back</a>
-        <p class="case-hero__label">Product Lead & Designer · 2022–2023 · Built from scratch</p>
-        <h1 class="case-hero__title">DN<br />Warehouse</h1>
-
-        <div class="case-meta">
-          <div class="case-meta__item">
-            <p class="case-meta__key">Role</p>
-            <p class="case-meta__val">Sole Designer & Product Owner</p>
-          </div>
-          <div class="case-meta__item">
-            <p class="case-meta__key">Company</p>
-            <p class="case-meta__val">DN.ru</p>
-          </div>
-          <div class="case-meta__item">
-            <p class="case-meta__key">Duration</p>
-            <p class="case-meta__val">12 months</p>
-          </div>
+      <div class="card">
+        <h2 class="card__title">Inventory visibility</h2>
+        <p class="card__desc">How we replaced three daily tools with one table — and cut stock lookup time from 4 minutes to 30 seconds.</p>
+        <div class="card__images">
+          <img src="my-warehouse-main.png" alt="My Warehouse main screen" />
+          <img src="my-warehouse-item-details.png" alt="Item details popup" />
         </div>
-      </section>
-
-      <!-- COVER -->
-      <div class="case-cover"></div>
-
-      <!-- INTRODUCTION -->
-      <section class="case-section">
-        <p class="case-section__label">Context</p>
-        <p class="case-text">DN.ru is one of Russia's largest suppliers of industrial pipeline valves — selling directly and through a network of regional dealers.</p>
-        <p class="case-body">The old model was slow by design. A dealer orders goods → goods travel to dealer's warehouse → dealer ships to their client. Two logistics steps where one would do. Double handling, double storage, delays at every stage.</p>
-      </section>
-
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Schema: old model vs new model</span>
+        <a href="dn-warehouse-inventory.html" class="cta">See the full breakdown →</a>
       </div>
 
-      <section class="case-section">
-        <p class="case-section__label">The Idea</p>
-        <p class="case-text">DN fulfills straight to the dealer's end clients. Cut out the middle step entirely.</p>
-        <p class="case-body">DN earns on logistics margin, dealers save on storage and operations. No off-the-shelf WMS could support this. Complex industrial nomenclature, multi-location stock, dealer-level permissions, a fulfillment model that didn't exist yet in any product we evaluated.</p>
-        <p class="case-body">So we built from scratch. My role: sole designer and product owner. Worked directly with the warehouse director, company owner, and the people who'd actually use it — warehouse staff across five locations. 12 months.</p>
-        <p class="case-body" style="color: var(--muted); font-style: italic;">All screens are the DN operator side of the product.</p>
-      </section>
-
-      <!-- SECTION 1: MAIN SCREEN -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">My Warehouse — main screen</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Main Screen</p>
-        <h2 class="case-statement">Managers were opening 3 tools to answer 1 question.</h2>
-        <p class="case-body">1C for stock. Excel for reservations. A phone call to confirm what was actually on the shelf. We watched this happen before touching anything. <em>11 context switches in a single 20-minute session.</em> The data existed — it just lived in the wrong places.</p>
-        <p class="case-body">One table replaced all three. Stock, reservations, incoming — all warehouses in parallel columns. Not tabs, because every tab switch broke concentration. We measured how often people switched before we cut the feature entirely.</p>
-        <p class="case-body">Red numbers for overreserved stock are intentional. Early prototypes used subtle indicators — operators missed them completely. When you're moving fast, anything that doesn't demand attention is invisible.</p>
-      </section>
-
-      <!-- SECTION 2: SEARCH -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Search screen</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Search</p>
-        <h2 class="case-statement">Nobody was browsing by category. Everyone was typing a SKU.</h2>
-        <p class="case-body">We tracked navigation patterns across eight sessions before cutting the sidebar entirely. Operators know their product codes. They don't explore — they look up.</p>
-        <p class="case-body">Search is the primary entry point. Results instant, item previewed before you commit. The action bar only appears on selection, only shows what's valid.</p>
-        <div class="case-quote">↳ Early builds showed a full toolbar at all times. Support logs filled with "I clicked it and nothing happened." Contextual visibility fixed it completely.</div>
-      </section>
-
-      <!-- SECTION 3: ITEM DETAILS -->
-      <div class="case-img-placeholder case-img-placeholder--tall">
-        <span class="case-img-placeholder__label">Item details popup</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Item Details</p>
-        <h2 class="case-statement">Click a number. See everything behind it.</h2>
-        <p class="case-body">Customer, quantity, which warehouse is holding it, which document it's tied to.</p>
-        <p class="case-body"><em>That lookup used to average 4 minutes. Now it's under 30 seconds.</em></p>
-      </section>
-
-      <!-- SECTION 4: COLUMN FILTER -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Column filter panel</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Filters</p>
-        <p class="case-body">Filters go beyond sort and hide. Negative stock, below-minimum threshold — both built directly into the column config.</p>
-        <div class="case-quote">↳ Both showed up as manual daily checks in nearly every observation session. We stopped treating them as edge cases.</div>
-      </section>
-
-      <!-- SECTION 5: GROUPED VIEW -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Grouped view</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Grouped View</p>
-        <p class="case-body">Group by reservation status, then incoming status. The table becomes a live operational snapshot — aggregated totals per group, active config always visible, each condition removable.</p>
-        <p class="case-body"><em>Card sorting with the team showed a consistent pattern: managers think in status first. What's reserved, what's coming, what's sitting untouched. We designed grouping to mirror that directly.</em></p>
-      </section>
-
-      <!-- SECTION 6: TEMPLATES -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Templates screen</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Templates</p>
-        <p class="case-body">Different roles configure the table differently. Templates save the full state — columns, grouping, sort, warehouses.</p>
-        <div class="case-quote">↳ 6–8 manual adjustments per session, every morning, before anyone started actual work. Templates ended that ritual.</div>
-      </section>
-
-      <!-- SECTION 7: ACTIONS MENU -->
-      <div class="case-img-placeholder case-img-placeholder--tall">
-        <span class="case-img-placeholder__label">Actions menu</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Actions</p>
-        <p class="case-body">Global operations live separately from item-level actions. New inventory count, CSV upload, save template — all in one place, never mixed with single-item actions.</p>
-        <p class="case-body"><em>Error logs from prototype testing showed the same mistake repeatedly: users triggered global operations thinking they were acting on a selected item. Structural separation — not just visual — eliminated that error class.</em></p>
-      </section>
-
-      <!-- SECTION 8: DELIVERY FLOW INTRO -->
-      <section class="case-section">
-        <p class="case-section__label">Delivery Flow</p>
-        <h2 class="case-statement">Three months of logs before touching the delivery flow.</h2>
-        <p class="case-body">Same two patterns every week: duplicate documents and stock discrepancies after supplier CSV imports. Not random. Systemic. Both traced back to specific moments in the delivery creation flow.</p>
-      </section>
-
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Before / after — error source diagram</span>
-      </div>
-
-      <!-- SECTION 9: CREATE DELIVERY -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Create new delivery screen</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Create Delivery</p>
-        <p class="case-body">The delivery form calculates as you build. Items by storage spot and package type. Weight, dimensions, costs — live. Receiving fee and storage shown before you commit, not discovered afterward.</p>
-        <div class="case-quote">↳ The by-package / by-item toggle wasn't planned. Came out of a mid-project walkthrough — half the team thought in pallets, the other half in individual items. Same data, two structures. We built both.</div>
-      </section>
-
-      <!-- SECTION 10: FILE IMPORT -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">File import screen</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">File Import</p>
-        <h2 class="case-statement">Nothing gets imported silently.</h2>
-        <p class="case-body">Every CSV line validated before anything is committed. Errors flagged inline with a specific message. Downloadable as a list — fix externally and re-upload, or add manually.</p>
-        <p class="case-body"><em>Supplier files had always imported without validation. Problems surfaced days later after stock counts had already propagated incorrectly. One change eliminated the pattern entirely.</em></p>
-      </section>
-
-      <!-- SECTION 11: DUPLICATES -->
-      <div class="case-img-placeholder case-img-placeholder--tall">
-        <span class="case-img-placeholder__label">Duplicate items popup</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Duplicates</p>
-        <p class="case-body">Duplicate detected — system stops and asks. Merge or add to a new spot.</p>
-        <div class="case-quote">↳ No consensus among users on what should happen. About half expected a merge, half expected a new line. So we stopped guessing and made it an explicit choice.</div>
-      </section>
-
-      <!-- SECTION 12: ACTIONS BAR -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Multi-select — contextual actions bar</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Selection</p>
-        <h2 class="case-statement">Select items. The toolbar becomes a contextual action bar.</h2>
-        <p class="case-body">Actions depend on the selection — not a fixed list. Item count shown prominently at the left.</p>
-        <p class="case-body"><em>Operators kept losing track of their selection after scrolling. The count label was a late addition — one afternoon to build, immediate impact in the next testing session.</em></p>
-      </section>
-
-      <!-- SECTION 13: MANAGE STOCK -->
-      <div class="case-img-placeholder case-img-placeholder--tall">
-        <span class="case-img-placeholder__label">Manage stock popup</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Stock Detail</p>
-        <p class="case-body">Click any stock figure: total, reserved, incoming, available — plus direct actions tied to that item right there.</p>
-        <div class="case-quote">↳ "I know the number, I just don't know what's behind it." Came up in almost every interview.</div>
-      </section>
-
-      <!-- SECTION 14: INVENTORY COUNT -->
-      <div class="case-img-placeholder case-img-placeholder--tall">
-        <span class="case-img-placeholder__label">Request inventory count popup</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Inventory Count</p>
-        <p class="case-body">Trigger a count from any item. Link created automatically. The manual reconciliation step that used to follow every count: gone.</p>
-      </section>
-
-      <!-- SECTION 15: DELIVERIES LIST -->
-      <div class="case-img-placeholder case-img-placeholder--wide">
-        <span class="case-img-placeholder__label">Deliveries list</span>
-      </div>
-
-      <section class="case-section">
-        <p class="case-section__label">Deliveries</p>
-        <h2 class="case-statement">The delivery log is a working tool, not an archive.</h2>
-        <p class="case-body">Status shown as label and progress bar — state and progress readable at a glance. Delivery method as a colored tag. Line count and unit count in separate columns.</p>
-        <div class="case-quote">↳ Eye-tracking showed text labels weren't fast enough at row density. The bar gave operators something to scan, not just read. Line count and unit count were separated after analytics showed they drove different decisions — complexity vs. logistics planning.</div>
-      </section>
-
-      <div class="case-img-placeholder case-img-placeholder--short">
-        <span class="case-img-placeholder__label">Final — multiple screens overview</span>
-      </div>
-
-      <!-- RESULTS -->
-      <div class="case-results">
-        <div class="case-results__item">
-          <p class="case-results__num">~35%</p>
-          <p class="case-results__desc">Faster across core workflows</p>
+      <div class="card">
+        <h2 class="card__title">Delivery management</h2>
+        <p class="card__desc">Three months of operational logs pointed to the same two failure patterns every week. Here's what we changed.</p>
+        <div class="card__images">
+          <img src="create-new-delivery.png" alt="Create new delivery screen" />
+          <img src="file-import.png" alt="File import screen" />
         </div>
-        <div class="case-results__item">
-          <p class="case-results__num">6 wks</p>
-          <p class="case-results__desc">To full adoption across 5 warehouses</p>
-        </div>
-        <div class="case-results__item">
-          <p class="case-results__num">Zero</p>
-          <p class="case-results__desc">Support tickets after week one</p>
-        </div>
-        <p class="case-results__note">
-          1C, Excel, and paper notes replaced by one system. Single source of truth across DN Moscow Central, DN Krasnodar, DN Cheboksary, DN Ural Hub, and DN Siberia Hub — and the foundation for the dealer-facing layer built on top of it.
-        </p>
+        <a href="dn-warehouse-delivery.html" class="cta">Break it down →</a>
       </div>
 
-    </div>
-  </main>
+      <div class="card">
+        <h2 class="card__title">Operations & control</h2>
+        <p class="card__desc">Individual tasks were solved. Then we looked at what breaks when you scale to five warehouses and a full operations team.</p>
+        <div class="card__images">
+          <img src="deliveries-list.png" alt="Deliveries list" />
+          <img src="few-selected-actions.png" alt="Multi-select contextual actions bar" />
+        </div>
+        <a href="dn-warehouse-operations.html" class="cta">See the thinking →</a>
+      </div>
 
-  <footer class="footer" style="margin-top: 80px;">
-    <div class="wrap footer__inner">
-      <span class="footer__copy">© 2026 Diana Akopyan</span>
-      <a href="../index.html#work" class="footer__link">← All projects</a>
-    </div>
-  </footer>
+    </section>
 
-  <script src="../js/script.js"></script>
+    <footer class="footer-metrics">
+      ~35% faster across core workflows · 6 weeks to full adoption · Zero support tickets after week one
+    </footer>
+  </div>
 </body>
 </html>

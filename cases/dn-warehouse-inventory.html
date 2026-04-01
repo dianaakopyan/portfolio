@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Visibility — DN Warehouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 24px;
+      line-height: 36px;
+      color: #1a1a1a;
+      background: #F5F5F5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 0;
+    }
+    .nav__back { font-size: 20px; color: #1a1a1a; }
+    .nav__back:hover { opacity: 0.5; }
+    .nav__title { font-size: 18px; font-weight: 500; color: #888888; }
+
+    .page-header { padding: 48px 0 64px; border-bottom: 1px solid #ebebeb; }
+    .page-header__label { font-size: 18px; color: #888888; margin-bottom: 14px; }
+    .page-header__title {
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+    }
+
+    .section { padding: 64px 0; border-bottom: 1px solid #ebebeb; }
+    .section:last-of-type { border-bottom: none; }
+    .section__title {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+    .section p { margin-bottom: 24px; max-width: 760px; }
+    .section p:last-of-type { margin-bottom: 0; }
+
+    img.img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      background: #f0f0f0;
+      min-height: 360px;
+      object-fit: cover;
+      margin: 32px 0;
+    }
+
+    .insight {
+      background: #efefef;
+      border-left: 3px solid #1a1a1a;
+      padding: 20px 24px;
+      border-radius: 4px;
+      font-size: 18px;
+      line-height: 28px;
+      color: #555555;
+      margin: 32px 0;
+    }
+
+    .metric {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid #ebebeb;
+      border-bottom: 1px solid #ebebeb;
+      margin: 32px 0;
+    }
+    .metric__num {
+      font-size: 48px;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .metric__label { font-size: 18px; color: #888888; margin-top: 10px; }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 64px 0;
+      border-top: 1px solid #ebebeb;
+      font-size: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .bottom-nav a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      body { font-size: 18px; line-height: 28px; }
+      .wrap { padding: 0 20px; }
+      .page-header__title { font-size: 32px; }
+      .section__title { font-size: 22px; }
+      .bottom-nav { flex-direction: column; align-items: flex-start; }
+      img.img { min-height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="dn-warehouse.html" class="nav__back">← Back</a>
+      <span class="nav__title">DN Warehouse</span>
+    </nav>
+
+    <header class="page-header">
+      <p class="page-header__label">DN Warehouse · Part 1 of 3</p>
+      <h1 class="page-header__title">Inventory visibility</h1>
+    </header>
+
+    <section class="section">
+      <h2 class="section__title">The problem</h2>
+      <p>Warehouse managers at DN started every day the same way. Open 1C — check stock levels. Open Excel — check what's reserved. Call a colleague — confirm what's actually on the shelf right now. Three tools. One question. Every single morning.</p>
+      <p>We spent time at the warehouses before drawing anything — just watching. Counting. One manager made 11 context switches in a 20-minute session. Not because she wanted to. Because there was no other way.</p>
+      <p>The data existed. It just lived in the wrong places.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The goal</h2>
+      <p>Any stock question should be answerable in one click. No switching, no calling, no cross-referencing.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">One table to replace three tools</h2>
+      <img src="my-warehouse-main.png" alt="My Warehouse main screen" class="img" />
+      <p>The entire inventory view became a single dense table — real-time stock, reservations, and incoming shipments, all warehouses shown side by side.</p>
+      <p>The key decision: parallel columns, not tabs. Managers compared locations constantly throughout the day. Every tab switch meant losing the mental picture of what they'd just read. We measured how often people switched between views — and then removed the need to switch at all.</p>
+      <div class="insight">Red numbers for overreserved items are intentional and impossible to ignore. Early prototypes used subtle visual cues — amber background, small warning icons. In usability sessions, operators missed them completely. When you're moving fast through a dense table, anything that doesn't demand attention is invisible. So we made the problem unignorable.</div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Search as the primary entry point</h2>
+      <img src="my-warehouse-search.png" alt="Search screen" class="img" />
+      <p>We mapped how operators find items across eight observation sessions. Browsing by category almost never appeared. Everyone typed a SKU fragment or part of a product name. The sidebar navigation we'd designed was being skipped entirely. So we cut it.</p>
+      <p>Search takes full focus on load. Results appear instantly with a preview tag of the matched item. The action bar at the bottom only appears when items are selected — and only shows actions that are valid for that selection.</p>
+      <div class="insight">Early builds showed a full toolbar at all times. Support logs filled up with "I clicked it and nothing happened." Making the toolbar contextual fixed the problem completely.</div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Making reservations traceable</h2>
+      <img src="my-warehouse-item-details.png" alt="Item details popup" class="img" />
+      <p>"89 reserved" used to mean nothing actionable. You knew stock was held somewhere — but by whom, for what, at which location? Finding out meant leaving My Warehouse, opening a separate module, filtering by item, and manually matching document numbers against each other.</p>
+      <p>We timed it with several users: average 4 minutes per lookup. Now it's one click from anywhere in the table. Total reserved broken down by warehouse. The exact documents behind each number — document ID, customer name, quantity, destination.</p>
+      <div class="metric">
+        <p class="metric__num">4 min → 30 sec</p>
+        <p class="metric__label">Stock lookup time</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Filters built around how warehouse teams think</h2>
+      <img src="my-warehouse-column-filter.png" alt="Column filter panel" class="img" />
+      <p>Standard table filters let you sort and hide columns. These go further.</p>
+      <p>During field observation, two daily checks kept appearing that no standard filter could handle: "show me everything that's gone negative" and "show me what's about to drop below minimum threshold." These weren't edge cases. They came up in nearly every session as part of the daily morning routine.</p>
+      <p>So we built them directly into the column configuration — negative stock toggle, below-minimum toggle — right alongside sort and hide. Each warehouse column has its own independent filter panel.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Grouping as operational analysis</h2>
+      <img src="my-warehouse-grouped.png" alt="Grouped view" class="img" />
+      <p>A card sorting session with the warehouse team revealed something consistent: managers think in operational status first. What's reserved, what's incoming, what's sitting untouched.</p>
+      <p>Group by reservation status at a specific warehouse, then by incoming status — and the table restructures into a live operational snapshot. Aggregated totals per group. You immediately see where stock is locked, where shipments are expected, where nothing is moving.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Saving how you work</h2>
+      <img src="my-warehouse-templates.png" alt="Templates screen" class="img" />
+      <p>Every role configured the table differently, and every session started with the same setup ritual. We logged an average of 6–8 manual adjustments per session before anyone actually started working. That's not a preference — that's friction, repeated every single day.</p>
+      <p>Templates persist the full view state — hidden columns, active grouping, sort configuration, selected warehouses. A warehouse manager and a procurement lead each start exactly where they need to be, without rebuilding their context every morning.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Outcome</h2>
+      <p>Stock lookup time dropped from ~4 minutes to under 30 seconds. Template adoption reached 100% of regular users within the first two weeks.</p>
+      <p>The table became the single starting point for every morning across all five warehouse locations. Not one of the tools — the only tool.</p>
+    </section>
+
+    <nav class="bottom-nav">
+      <a href="dn-warehouse.html">← Back to overview</a>
+      <a href="dn-warehouse-delivery.html">Next: Delivery management →</a>
+    </nav>
+  </div>
+</body>
+</html>

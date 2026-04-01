@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operations & Control — DN Warehouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 24px;
+      line-height: 36px;
+      color: #1a1a1a;
+      background: #F5F5F5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 0;
+    }
+    .nav__back { font-size: 20px; color: #1a1a1a; }
+    .nav__back:hover { opacity: 0.5; }
+    .nav__title { font-size: 18px; font-weight: 500; color: #888888; }
+
+    .page-header { padding: 48px 0 64px; border-bottom: 1px solid #ebebeb; }
+    .page-header__label { font-size: 18px; color: #888888; margin-bottom: 14px; }
+    .page-header__title {
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+    }
+
+    .section { padding: 64px 0; border-bottom: 1px solid #ebebeb; }
+    .section:last-of-type { border-bottom: none; }
+    .section__title {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+    .section p { margin-bottom: 24px; max-width: 760px; }
+    .section p:last-of-type { margin-bottom: 0; }
+
+    img.img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      background: #f0f0f0;
+      min-height: 360px;
+      object-fit: cover;
+      margin: 32px 0;
+    }
+
+    .insight {
+      background: #efefef;
+      border-left: 3px solid #1a1a1a;
+      padding: 20px 24px;
+      border-radius: 4px;
+      font-size: 18px;
+      line-height: 28px;
+      color: #555555;
+      margin: 32px 0;
+    }
+
+    .metric {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid #ebebeb;
+      border-bottom: 1px solid #ebebeb;
+      margin: 32px 0;
+    }
+    .metric__num {
+      font-size: 48px;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .metric__label { font-size: 18px; color: #888888; margin-top: 10px; }
+
+    .bottom-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 64px 0;
+      border-top: 1px solid #ebebeb;
+      font-size: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .bottom-nav a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      body { font-size: 18px; line-height: 28px; }
+      .wrap { padding: 0 20px; }
+      .page-header__title { font-size: 32px; }
+      .section__title { font-size: 22px; }
+      .bottom-nav { flex-direction: column; align-items: flex-start; }
+      img.img { min-height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="dn-warehouse.html" class="nav__back">← Back</a>
+      <span class="nav__title">DN Warehouse</span>
+    </nav>
+
+    <header class="page-header">
+      <p class="page-header__label">DN Warehouse · Part 3 of 3</p>
+      <h1 class="page-header__title">Operations & control</h1>
+    </header>
+
+    <section class="section">
+      <h2 class="section__title">The problem</h2>
+      <p>Individual screens were working. Inventory was visible. Deliveries were being created without the old failure patterns. But something else started showing up as the team scaled to five warehouses and a full operations crew.</p>
+      <p>Routine tasks — adjusting stock quantities, requesting an inventory count, moving items between locations — required navigating to separate modules, performing the action, then navigating back. Each task was fast in isolation. In practice, operators were doing dozens of them a day. The switching added up.</p>
+      <p>The second issue was harder to name: there was no single place where you could see the state of operations right now. Delivery statuses. What had been processed. What was still pending. It existed in pieces across the system, but never assembled in one view.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Bulk actions without losing context</h2>
+      <img src="few-selected-actions.png" alt="Multi-select contextual actions bar" class="img" />
+      <p>The contextual action bar appears at the bottom of the screen the moment items are selected — and disappears completely when nothing is selected. No permanent toolbar taking up space. No actions that don't apply to the current selection.</p>
+      <p>When multiple items are selected across different states, the bar shows only the actions that are valid for all of them. If an action applies to some items but not others, it's shown with a count — "Apply to 4 of 6 selected." The operator knows exactly what will happen before they click.</p>
+      <div class="insight">The count label came from a testing session. Without it, operators either assumed the action applied to everything (wrong) or hesitated and deselected to check (slow). One number eliminated both problems.</div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Find it, act on it — without leaving the view</h2>
+      <img src="my-warehouse-search.png" alt="Search and action flow" class="img" />
+      <p>The most common operations workflow wasn't browsing — it was targeted. Find a specific SKU, check its status across warehouses, take action. Under the old system, that meant: search in one module, note the result, navigate to another module, apply the action, navigate back.</p>
+      <p>We collapsed it. Search surfaces the item instantly. The same action bar that works in the table works in search results. Find the item, select it, act — without leaving the context you were already in.</p>
+      <div class="metric">
+        <p class="metric__num">7 → 3 steps</p>
+        <p class="metric__label">To complete a targeted stock action</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Stock adjustments that explain themselves</h2>
+      <img src="my-warehouse-manage-stock.png" alt="Manage stock popup" class="img" />
+      <p>Stock adjustments were a daily occurrence — write-offs, corrections after physical counts, transfers between storage locations. The old flow required opening a dedicated module, selecting the item again, entering the change, and saving.</p>
+      <p>The manage stock popup opens directly from the inventory table. Current quantity shown. New quantity entered. A required reason field — write-off, correction, transfer, other — that feeds the audit log automatically.</p>
+      <div class="insight">The reason field was pushed back on early in development. "We know why we're adjusting — we don't need to type it." Three months into production, the audit log became one of the most-used views during supplier reconciliation calls. "I know the number and I know exactly why it changed" is a different position to be in.</div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Inventory counts as a scheduled workflow</h2>
+      <img src="request-inventory-count.png" alt="Request inventory count popup" class="img" />
+      <p>Physical inventory counts happened reactively — when a discrepancy was noticed, someone would walk to the shelf and count. There was no formal request flow, no assignment to specific staff, no tracked status.</p>
+      <p>The request inventory count popup turns counting into an assigned task. Select items or a storage zone, assign to a staff member, set a due date. The request appears in their queue. When completed, results feed back into the system and trigger a comparison against the recorded figures — discrepancies flagged automatically.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">The deliveries log as an operational view</h2>
+      <img src="deliveries-list.png" alt="Deliveries list" class="img" />
+      <p>A delivery list sounds simple. In practice, across five warehouses and multiple clients, it needs to answer several questions at once: what arrived today, what's still in transit, what was flagged for review, what needs sign-off.</p>
+      <p>The deliveries list is built around status — not document number or date. Documents with open issues surface at the top. Color-coded status badges are scannable without reading. Filters collapse to the statuses that matter for whoever is looking.</p>
+      <div class="insight">An eye-tracking session with three operators showed that every person started reading from the status column — not the date, not the document number. We reorganized the column order to match that. It sounds minor. The operators noticed immediately.</div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Outcome</h2>
+      <p>Across core workflows, task completion time dropped by roughly 35%. That number comes from timed observations before and after — same tasks, same operators, different system.</p>
+      <p>Full adoption across all five warehouse locations took six weeks. Support tickets to the development team after week one: zero. Not because the system was perfect — because when something was unclear, the interface itself provided enough context to figure it out.</p>
+      <p>DN Warehouse replaced every tool the operations team had been using. Not by being more powerful than each one individually, but by making the whole set of daily tasks completable in one place, without switching context, without losing track of where you were.</p>
+    </section>
+
+    <nav class="bottom-nav">
+      <a href="dn-warehouse-delivery.html">← Delivery management</a>
+      <a href="dn-warehouse.html">← Back to overview</a>
+    </nav>
+  </div>
+</body>
+</html>
