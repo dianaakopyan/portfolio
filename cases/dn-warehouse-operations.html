@@ -91,6 +91,23 @@
     }
     .metric__label { font-size: 18px; color: #888888; margin-top: 10px; }
 
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ebebeb;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .metrics-row .metric {
+      background: #F5F5F5;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      padding: 32px 20px;
+    }
+
     .bottom-nav {
       display: flex;
       justify-content: space-between;
@@ -130,6 +147,7 @@
       <p>Individual screens were working. Inventory was visible. Deliveries were being created without the old failure patterns. But something else started showing up as the team scaled to five warehouses and a full operations crew.</p>
       <p>Routine tasks — adjusting stock quantities, requesting an inventory count, moving items between locations — required navigating to separate modules, performing the action, then navigating back. Each task was fast in isolation. In practice, operators were doing dozens of them a day. The switching added up.</p>
       <p>The second issue was harder to name: there was no single place where you could see the state of operations right now. Delivery statuses. What had been processed. What was still pending. It existed in pieces across the system, but never assembled in one view.</p>
+      <div class="insight">We timed the most common cross-module workflow: find an item, check its status, adjust the stock count. Seven steps across three modules. Operators were doing this dozens of times a day. The total daily cost was invisible — until we added it up.</div>
     </section>
 
     <section class="section">
@@ -138,6 +156,10 @@
       <p>The contextual action bar appears at the bottom of the screen the moment items are selected — and disappears completely when nothing is selected. No permanent toolbar taking up space. No actions that don't apply to the current selection.</p>
       <p>When multiple items are selected across different states, the bar shows only the actions that are valid for all of them. If an action applies to some items but not others, it's shown with a count — "Apply to 4 of 6 selected." The operator knows exactly what will happen before they click.</p>
       <div class="insight">The count label came from a testing session. Without it, operators either assumed the action applied to everything (wrong) or hesitated and deselected to check (slow). One number eliminated both problems.</div>
+      <div class="metric">
+        <p class="metric__num">0 px</p>
+        <p class="metric__label">Permanent toolbar space — the bar only exists when it's needed</p>
+      </div>
     </section>
 
     <section class="section">
@@ -149,6 +171,7 @@
         <p class="metric__num">7 → 3 steps</p>
         <p class="metric__label">To complete a targeted stock action</p>
       </div>
+      <div class="insight">Search-to-action was the most requested feature in post-launch feedback. Operators had run the 7-step version for years. When the 3-step version shipped, most assumed it was a coincidence — not that the system had been redesigned around how they actually worked.</div>
     </section>
 
     <section class="section">
@@ -164,6 +187,7 @@
       <img src="request-inventory-count.jpg" alt="Request inventory count popup" class="img" />
       <p>Physical inventory counts happened reactively — when a discrepancy was noticed, someone would walk to the shelf and count. There was no formal request flow, no assignment to specific staff, no tracked status.</p>
       <p>The request inventory count popup turns counting into an assigned task. Select items or a storage zone, assign to a staff member, set a due date. The request appears in their queue. When completed, results feed back into the system and trigger a comparison against the recorded figures — discrepancies flagged automatically.</p>
+      <div class="insight">Before: a discrepancy was noticed → someone walked to the shelf. After: a discrepancy triggers an assigned task with a deadline and an owner. The shift from reactive to scheduled counting changed the reliability of stock figures across all five locations.</div>
     </section>
 
     <section class="section">
@@ -177,6 +201,20 @@
     <section class="section">
       <h2 class="section__title">Outcome</h2>
       <p>Across core workflows, task completion time dropped by roughly 35%. That number comes from timed observations before and after — same tasks, same operators, different system.</p>
+      <div class="metrics-row">
+        <div class="metric">
+          <p class="metric__num">~35%</p>
+          <p class="metric__label">Faster across core workflows</p>
+        </div>
+        <div class="metric">
+          <p class="metric__num">6 weeks</p>
+          <p class="metric__label">To full adoption across 5 warehouses</p>
+        </div>
+        <div class="metric">
+          <p class="metric__num">0</p>
+          <p class="metric__label">Support tickets after week one</p>
+        </div>
+      </div>
       <p>Full adoption across all five warehouse locations took six weeks. Support tickets to the development team after week one: zero. Not because the system was perfect — because when something was unclear, the interface itself provided enough context to figure it out.</p>
       <p>DN Warehouse replaced every tool the operations team had been using. Not by being more powerful than each one individually, but by making the whole set of daily tasks completable in one place, without switching context, without losing track of where you were.</p>
     </section>

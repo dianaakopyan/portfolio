@@ -75,6 +75,39 @@
       margin: 32px 0;
     }
 
+    .metric {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid #ebebeb;
+      border-bottom: 1px solid #ebebeb;
+      margin: 32px 0;
+    }
+    .metric__num {
+      font-size: 48px;
+      font-weight: 600;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .metric__label { font-size: 18px; color: #888888; margin-top: 10px; }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ebebeb;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    .metrics-row .metric {
+      background: #F5F5F5;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      padding: 32px 20px;
+    }
+
     .bottom-nav {
       display: flex;
       justify-content: space-between;
@@ -113,6 +146,10 @@
       <h2 class="section__title">The problem</h2>
       <p>Before touching any wireframes, we pulled three months of operational logs. The pattern was hard to miss.</p>
       <p>Duplicate delivery documents appeared in nearly every week. Stock discrepancies clustered around the same moment almost every time — right after a supplier CSV import. Errors weren't random or caused by careless operators. They were systemic, and they traced back to three specific points in the delivery creation flow.</p>
+      <div class="metric">
+        <p class="metric__num">~20%</p>
+        <p class="metric__label">Of delivery documents had items already open in another document</p>
+      </div>
       <p>We didn't redesign delivery management from scratch. We found the three failure points and fixed them precisely.</p>
     </section>
 
@@ -130,6 +167,10 @@
       <p>Suppliers send CSV files. Those files have errors — wrong SKUs, formatting inconsistencies, items that don't exist in the nomenclature directory. The old system imported without any validation. Problems surfaced days later, after stock counts had already propagated incorrectly through the system.</p>
       <p>The fix: validate every line before committing anything. Unmatched items appear in red with a tooltip that explains exactly why the system couldn't find them. The error list is downloadable — fix externally and re-upload, or add missing items manually.</p>
       <div class="insight">That single change eliminated the discrepancy pattern we'd traced in three months of operational logs. Completely.</div>
+      <div class="metric">
+        <p class="metric__num">Weekly → 0</p>
+        <p class="metric__label">Stock discrepancies from CSV imports after validation was added</p>
+      </div>
     </section>
 
     <section class="section">
@@ -137,6 +178,11 @@
       <img src="deliver-to-dn-warehouse.jpg" alt="Deliver to DN Warehouse modal" class="img" />
       <p>Roughly 20% of delivery documents contained items that already existed in another open document for the same destination. It happened gradually — a manager would start a new document without checking whether one was already in progress. Each document looked correct in isolation, so no one flagged it.</p>
       <p>A single modal intercepts before anything is committed. Create a new delivery document, or add to an existing one — existing documents shown with their number and date. Two options. One question. Duplicate documents stopped appearing within the first month.</p>
+      <div class="insight">Two choices, shown in under a second. The mental cost of the old system was much higher — keeping track of open documents in your head, across shifts, across teams. One modal replaced all of that.</div>
+      <div class="metric">
+        <p class="metric__num">< 1 month</p>
+        <p class="metric__label">Until duplicate delivery documents stopped appearing entirely</p>
+      </div>
     </section>
 
     <section class="section">
@@ -144,11 +190,26 @@
       <img src="duplicate-items.jpg" alt="Duplicate items popup" class="img" />
       <p>A related edge case showed up in almost every usability session: someone would add an item that already existed in the document. About half of operators expected a quantity merge. The other half expected a new line. No dominant mental model — and designing for either assumption would have been wrong for the other half.</p>
       <p>When a duplicate is detected, the system stops and presents two explicit options: keep the existing quantity, or add the item to a new storage location. The operator decides. No silent merges, no data loss.</p>
+      <div class="insight">We tested both approaches in prototypes. Silent merge: operators didn't notice it had happened. Always new line: people started deleting duplicates manually afterward. The explicit choice was the only pattern that didn't create a follow-up problem.</div>
     </section>
 
     <section class="section">
       <h2 class="section__title">Outcome</h2>
       <p>Duplicate delivery documents: eliminated within the first month. Stock discrepancies from CSV imports: went from a weekly occurrence to effectively zero.</p>
+      <div class="metrics-row">
+        <div class="metric">
+          <p class="metric__num">~20% → 0</p>
+          <p class="metric__label">Duplicate delivery documents</p>
+        </div>
+        <div class="metric">
+          <p class="metric__num">Weekly → 0</p>
+          <p class="metric__label">CSV import discrepancies</p>
+        </div>
+        <div class="metric">
+          <p class="metric__num">#1</p>
+          <p class="metric__label">Highest-rated feature in internal feedback</p>
+        </div>
+      </div>
       <p>The delivery creation flow became one of the highest-rated features in internal feedback — not because it was flashy, but because it stopped being a source of daily frustration.</p>
     </section>
 
