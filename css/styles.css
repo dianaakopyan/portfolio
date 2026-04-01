@@ -871,3 +871,100 @@ img { display: block; max-width: 100%; }
   .case-image-row { grid-template-columns: 1fr; }
   .case-result { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ========================
+   CASE EXTENDED COMPONENTS
+   ======================== */
+
+/* Large statement heading inside case sections */
+.case-statement {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text);
+  margin: 48px 0 20px;
+}
+
+@media (min-width: 640px) {
+  .case-statement { font-size: 32px; }
+}
+
+/* Blockquote annotation: ↳ note */
+.case-quote {
+  border-left: 2px solid var(--border);
+  padding: 10px 0 10px 20px;
+  margin: 24px 0;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Labeled image placeholder */
+.case-img-placeholder {
+  width: 100%;
+  background: var(--card-image);
+  border-radius: 12px;
+  margin: 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+}
+
+.case-img-placeholder--wide  { aspect-ratio: 16 / 9; }
+.case-img-placeholder--tall  { aspect-ratio: 4 / 3; }
+.case-img-placeholder--short { aspect-ratio: 21 / 9; }
+
+.case-img-placeholder__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  opacity: 0.6;
+  letter-spacing: 0.01em;
+}
+
+/* Results strip at page bottom */
+.case-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding: 48px 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 64px;
+}
+
+.case-results__num {
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.case-results__desc {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.case-results__note {
+  grid-column: 1 / -1;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.6;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .case-results { grid-template-columns: repeat(2, 1fr); }
+  .case-results__num { font-size: 36px; }
+  .case-statement { font-size: 22px; margin: 32px 0 16px; }
+}
