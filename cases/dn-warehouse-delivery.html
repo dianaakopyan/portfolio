@@ -118,7 +118,7 @@
 
     <section class="section">
       <h2 class="section__title">Failure point 1 — building the document</h2>
-      <img src="create-new-delivery.png" alt="Create new delivery screen" class="img" />
+      <img src="create-new-delivery.jpg" alt="Create new delivery screen" class="img" />
       <p>The old process: enter items manually, calculate weights and dimensions separately, figure out costs afterward. Every step was disconnected from the next.</p>
       <p>The new delivery form organizes items by storage spot and package type. Weight and dimensions per line. Unit price and totals calculated live as you add items. Receiving fee and monthly storage cost shown at the bottom — before you commit, not discovered afterward.</p>
       <div class="insight">The by-package / by-item view toggle wasn't in the original scope. It came out of a workflow walkthrough with the operations team midway through the project. Half the room thought in pallets. The other half thought in individual items. Neither was wrong. We built both views on top of the same data model.</div>
@@ -126,7 +126,7 @@
 
     <section class="section">
       <h2 class="section__title">Failure point 2 — importing supplier data</h2>
-      <img src="file-import.png" alt="File import screen" class="img" />
+      <img src="file-import.jpg" alt="File import screen" class="img" />
       <p>Suppliers send CSV files. Those files have errors — wrong SKUs, formatting inconsistencies, items that don't exist in the nomenclature directory. The old system imported without any validation. Problems surfaced days later, after stock counts had already propagated incorrectly through the system.</p>
       <p>The fix: validate every line before committing anything. Unmatched items appear in red with a tooltip that explains exactly why the system couldn't find them. The error list is downloadable — fix externally and re-upload, or add missing items manually.</p>
       <div class="insight">That single change eliminated the discrepancy pattern we'd traced in three months of operational logs. Completely.</div>
@@ -134,14 +134,14 @@
 
     <section class="section">
       <h2 class="section__title">Failure point 3 — duplicate documents</h2>
-      <img src="deliver-to-dn-warehouse.png" alt="Deliver to DN Warehouse modal" class="img" />
+      <img src="deliver-to-dn-warehouse.jpg" alt="Deliver to DN Warehouse modal" class="img" />
       <p>Roughly 20% of delivery documents contained items that already existed in another open document for the same destination. It happened gradually — a manager would start a new document without checking whether one was already in progress. Each document looked correct in isolation, so no one flagged it.</p>
       <p>A single modal intercepts before anything is committed. Create a new delivery document, or add to an existing one — existing documents shown with their number and date. Two options. One question. Duplicate documents stopped appearing within the first month.</p>
     </section>
 
     <section class="section">
       <h2 class="section__title">Making conflict resolution explicit</h2>
-      <img src="duplicate-items.png" alt="Duplicate items popup" class="img" />
+      <img src="duplicate-items.jpg" alt="Duplicate items popup" class="img" />
       <p>A related edge case showed up in almost every usability session: someone would add an item that already existed in the document. About half of operators expected a quantity merge. The other half expected a new line. No dominant mental model — and designing for either assumption would have been wrong for the other half.</p>
       <p>When a duplicate is detected, the system stops and presents two explicit options: keep the existing quantity, or add the item to a new storage location. The operator decides. No silent merges, no data loss.</p>
     </section>

@@ -134,7 +134,7 @@
 
     <section class="section">
       <h2 class="section__title">Bulk actions without losing context</h2>
-      <img src="few-selected-actions.png" alt="Multi-select contextual actions bar" class="img" />
+      <img src="few-selected-actions.jpg" alt="Multi-select contextual actions bar" class="img" />
       <p>The contextual action bar appears at the bottom of the screen the moment items are selected — and disappears completely when nothing is selected. No permanent toolbar taking up space. No actions that don't apply to the current selection.</p>
       <p>When multiple items are selected across different states, the bar shows only the actions that are valid for all of them. If an action applies to some items but not others, it's shown with a count — "Apply to 4 of 6 selected." The operator knows exactly what will happen before they click.</p>
       <div class="insight">The count label came from a testing session. Without it, operators either assumed the action applied to everything (wrong) or hesitated and deselected to check (slow). One number eliminated both problems.</div>
@@ -142,7 +142,7 @@
 
     <section class="section">
       <h2 class="section__title">Find it, act on it — without leaving the view</h2>
-      <img src="my-warehouse-search.png" alt="Search and action flow" class="img" />
+      <img src="my-warehouse-search.jpg" alt="Search and action flow" class="img" />
       <p>The most common operations workflow wasn't browsing — it was targeted. Find a specific SKU, check its status across warehouses, take action. Under the old system, that meant: search in one module, note the result, navigate to another module, apply the action, navigate back.</p>
       <p>We collapsed it. Search surfaces the item instantly. The same action bar that works in the table works in search results. Find the item, select it, act — without leaving the context you were already in.</p>
       <div class="metric">
@@ -153,7 +153,7 @@
 
     <section class="section">
       <h2 class="section__title">Stock adjustments that explain themselves</h2>
-      <img src="my-warehouse-manage-stock.png" alt="Manage stock popup" class="img" />
+      <img src="my-warehouse-manage-stock.jpg" alt="Manage stock popup" class="img" />
       <p>Stock adjustments were a daily occurrence — write-offs, corrections after physical counts, transfers between storage locations. The old flow required opening a dedicated module, selecting the item again, entering the change, and saving.</p>
       <p>The manage stock popup opens directly from the inventory table. Current quantity shown. New quantity entered. A required reason field — write-off, correction, transfer, other — that feeds the audit log automatically.</p>
       <div class="insight">The reason field was pushed back on early in development. "We know why we're adjusting — we don't need to type it." Three months into production, the audit log became one of the most-used views during supplier reconciliation calls. "I know the number and I know exactly why it changed" is a different position to be in.</div>
@@ -161,14 +161,14 @@
 
     <section class="section">
       <h2 class="section__title">Inventory counts as a scheduled workflow</h2>
-      <img src="request-inventory-count.png" alt="Request inventory count popup" class="img" />
+      <img src="request-inventory-count.jpg" alt="Request inventory count popup" class="img" />
       <p>Physical inventory counts happened reactively — when a discrepancy was noticed, someone would walk to the shelf and count. There was no formal request flow, no assignment to specific staff, no tracked status.</p>
       <p>The request inventory count popup turns counting into an assigned task. Select items or a storage zone, assign to a staff member, set a due date. The request appears in their queue. When completed, results feed back into the system and trigger a comparison against the recorded figures — discrepancies flagged automatically.</p>
     </section>
 
     <section class="section">
       <h2 class="section__title">The deliveries log as an operational view</h2>
-      <img src="deliveries-list.png" alt="Deliveries list" class="img" />
+      <img src="deliveries-list.jpg" alt="Deliveries list" class="img" />
       <p>A delivery list sounds simple. In practice, across five warehouses and multiple clients, it needs to answer several questions at once: what arrived today, what's still in transit, what was flagged for review, what needs sign-off.</p>
       <p>The deliveries list is built around status — not document number or date. Documents with open issues surface at the top. Color-coded status badges are scannable without reading. Filters collapse to the statuses that matter for whoever is looking.</p>
       <div class="insight">An eye-tracking session with three operators showed that every person started reading from the status column — not the date, not the document number. We reorganized the column order to match that. It sounds minor. The operators noticed immediately.</div>
